@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+	  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+	  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+
+	<classPathEntry location="ojdbc6.jar" />
+
+	<context id="mysqlTable" targetRuntime="MyBatis3">
+
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" /> 
+		</plugin>
+
+		<!-- 去掉注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@10.49.61.115:1521:orcl" userId="xc_portal" password="123" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+
+		<!--com.xcecs.wifi.dao.model-->
+		<javaModelGenerator targetPackage="com.xcecs.wifi.portal.dao.model"
+			targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootClass" value="com.xcecs.wifi.core.base.CoreEntity" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--com.xcecs.wifi.dao.mappers-->
+		<sqlMapGenerator targetPackage="com.xcecs.wifi.portal.dao.mappers"
+			targetProject="code">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!--com.finstone.house.dao-->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.xcecs.wifi.portal.dao" targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootInterface" value="com.xcecs.wifi.core.base.CoreDao" />
+		</javaClientGenerator>
+
+<!-- 
+		<table schema="XC_PORTAL" tableName="P_CAROUSE_IMGS" domainObjectName="CarouseImgs">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_BACKGROUND_IMGS" domainObjectName="BackgroundImgs">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_COLUMNS" domainObjectName="Columns">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_DICTIONARY" domainObjectName="Dictionary">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_DISCUSS" domainObjectName="Discuss">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_FAVORITES" domainObjectName="Favorites">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_FOCUS" domainObjectName="Focus">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+-->
+		<table schema="XC_PORTAL" tableName="P_INFORMATION" domainObjectName="Information">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+<!-- 
+		<table schema="XC_PORTAL" tableName="P_INFORMATION_TYPE" domainObjectName="InformationType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_LINKS" domainObjectName="Links">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_MOBILE_VERIFY" domainObjectName="MobileVerify">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_OAUTH_LOGON" domainObjectName="OauthLogon">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_RESERVATION" domainObjectName="Reservation">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_RESERVATION_RELATIONSHIP" domainObjectName="ReservationRelationShip">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_SHOP" domainObjectName="Shop">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_SHOP_TYPE" domainObjectName="ShopType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_SHOP_RELATIONSHIP" domainObjectName="ShopRelationship">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_SINGLE_PAGE" domainObjectName="SinglePage">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_SINGLE_RES_ITEM" domainObjectName="SingleResItem">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_USER" domainObjectName="User">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_PORTAL" tableName="P_USER_FEEDBACK" domainObjectName="UserFeedback">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		<table schema="XC_PORTAL" tableName="P_CUSTOM_ATTRIBUTE_TYPE" domainObjectName="CustomAttributeType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		<table schema="XC_PORTAL" tableName="P_CUSTOM_ATTRIBUTE" domainObjectName="CustomAttribute">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		<table schema="XC_PORTAL" tableName="P_CUSTOM_ATTRIBUTE_VALUE" domainObjectName="CustomAttributeValue">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		<table schema="XC_PORTAL" tableName="P_COLUMNS_FUNCTION" domainObjectName="ColumnsFunction">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		<table schema="XC_PORTAL" tableName="P_COLUMNS_FUN_RELATIONSHIP" domainObjectName="ColumnsFunRelationship">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		<table schema="XC_PORTAL" tableName="P_SHARE_RECORD" domainObjectName="ShareRecord">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		<table schema="XC_PORTAL" tableName="B_ADDRESS" domainObjectName="address">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+-->
+	</context>
+
+</generatorConfiguration>
+

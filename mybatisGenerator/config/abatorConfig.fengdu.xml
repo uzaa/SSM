@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+	  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+	  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+
+	<classPathEntry location="ojdbc6.jar" />
+
+	<context id="mysqlTable" targetRuntime="MyBatis3">
+
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" /> 
+		</plugin>
+
+		<!-- 去掉注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.1.100:3306/gc_fengdu?useUnicode=true&amp;characterEncoding=utf8" userId="root" password="zhsq1234" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+
+		<!--com.gc.frame.dao.model-->
+		<javaModelGenerator targetPackage="com.gc.fengdu.dao.model"
+			targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootClass" value="com.gc.frame.core.base.CoreEntity" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--com.gc.frame.dao.mappers-->
+		<sqlMapGenerator targetPackage="com.gc.fengdu.dao.mappers"
+			targetProject="code">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!--com.finstone.house.dao-->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.gc.fengdu.dao" targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootInterface" value="com.gc.frame.core.base.CoreDao" />
+		</javaClientGenerator>
+
+  
+		<table schema="gc_fengdu" tableName="t_user_employee" domainObjectName="UserEmployee">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<!-- <table schema="gc_fengdu" tableName="T_baseinfo_type" domainObjectName="BaseInfoType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="gc_fengdu" tableName="T_questionnaire" domainObjectName="Questionnaire">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="gc_fengdu" tableName="t_questionnaire_user_statistic" domainObjectName="QuestionnaireUserStatistic">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table> -->
+		
+		
+		<!--<table schema="xc_bbs" tableName="T_AGENT" domainObjectName="Agent">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_bbs" tableName="T_AUTHORITY" domainObjectName="Authority">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table> -->
+		<!-- <table schema="xc_bbs" tableName="T_AUTHORITY_MENU" domainObjectName="AuthorityMenu">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_bbs" tableName="T_GROUP" domainObjectName="Group">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		    -->
+	</context>
+
+</generatorConfiguration>
+

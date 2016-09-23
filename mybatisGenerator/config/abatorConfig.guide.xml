@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+	  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+	  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+
+	<classPathEntry location="ojdbc6.jar" />
+
+	<context id="mysqlTable" targetRuntime="MyBatis3">
+
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" /> 
+		</plugin>
+
+		<!-- 去掉注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@10.49.61.115:1521:orcl" userId="xc_guide" password="123" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+
+		<!--com.xcecs.wifi.dao.model-->
+		<javaModelGenerator targetPackage="com.xcecs.wifi.guide.dao.model"
+			targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootClass" value="com.xcecs.wifi.core.base.CoreEntity" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--com.xcecs.wifi.dao.mappers-->
+		<sqlMapGenerator targetPackage="com.xcecs.wifi.guide.dao.mappers"
+			targetProject="code">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!--com.finstone.house.dao-->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.xcecs.wifi.guide.dao" targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootInterface" value="com.xcecs.wifi.core.base.CoreDao" />
+		</javaClientGenerator>
+
+		<!-- 
+		<table schema="XC_guide" tableName="B_ADMIN" domainObjectName="Admin">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="XC_guide" tableName="B_MENU" domainObjectName="Menu">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 	
+		<table schema="XC_guide" tableName="b_mobile_verify" domainObjectName="MobileVerify">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="XC_guide" tableName="B_DICTIONARY" domainObjectName="Dictionary">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		
+ 		<table schema="XC_guide" tableName="B_SINGLE_PAGE" domainObjectName="SinglePage">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		
+		<table schema="XC_guide" tableName="B_SMS_LOG" domainObjectName="SmsLog">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+ 		<table schema="XC_guide" tableName="CPT_MOBILE_ORDER" domainObjectName="CptMobileOrder">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		
+ 		<table schema="XC_guide" tableName="B_GUIDE" domainObjectName="Guide">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		
+		
+		
+		
+		
+		<table schema="XC_guide" tableName="b_guide_calendar" domainObjectName="GuideCalendar">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		
+		
+		<table schema="XC_guide" tableName="b_address" domainObjectName="GuideAddress">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="XC_guide" tableName="b_user" domainObjectName="User">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		
+		
+		
+		
+		<table schema="XC_guide" tableName="B_Order_Complain" domainObjectName="OrderComplain">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="XC_guide" tableName="B_Advertisement" domainObjectName="Advertisement">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="XC_guide" tableName="B_User_Feedback" domainObjectName="UserFeedback">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+	
+		
+		
+		
+		<table schema="XC_guide" tableName="B_Order_score" domainObjectName="OrderScore">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="XC_guide" tableName="B_Guide_Bill" domainObjectName="GuideBill">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="XC_guide" tableName="b_helpcenter" domainObjectName="Helpcenter">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		-->
+		
+		<table schema="XC_guide" tableName="B_Order" domainObjectName="Order">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+			
+		
+		
+		
+		
+		
+		
+		
+	
+		
+	</context>
+
+</generatorConfiguration>
+
