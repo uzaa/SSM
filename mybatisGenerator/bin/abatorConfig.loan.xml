@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+	  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+	  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+
+	<classPathEntry location="ojdbc6.jar" />
+
+	<context id="mysqlTable" targetRuntime="MyBatis3">
+
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />  
+
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" /> 
+		</plugin>
+		
+
+		<!-- 去掉注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.49.61.115:3307/xc_loan?useUnicode=true&amp;characterEncoding=utf8" userId="root" password="" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+
+		<!--com.xcecs.wifi.dao.model-->
+		<javaModelGenerator targetPackage="com.xcecs.wifi.loan.dao.model" targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootClass" value="com.xcecs.wifi.core.base.CoreEntity" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--com.xcecs.wifi.dao.mappers-->
+		<sqlMapGenerator targetPackage="com.xcecs.wifi.loan.dao.mappers" targetProject="code">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!--com.finstone.house.dao-->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.xcecs.wifi.loan.dao" targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootInterface" value="com.xcecs.wifi.core.base.CoreDao" />
+		</javaClientGenerator>
+  
+  
+		<table schema="xc_loan" tableName="T_EMPLOYEE" domainObjectName="Employee">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+  
+		<table schema="xc_loan" tableName="T_AGENT" domainObjectName="Agent">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+  
+		<table schema="xc_loan" tableName="T_USER" domainObjectName="User">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+  
+		<table schema="xc_loan" tableName="T_GROUP" domainObjectName="Group">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+  
+		<table schema="xc_loan" tableName="T_AUTH" domainObjectName="Auth">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+  
+		<table schema="xc_loan" tableName="T_MENU" domainObjectName="Menu">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+  
+		<table schema="xc_loan" tableName="T_MENU_AUTH" domainObjectName="MenuAuth">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+  
+		<table schema="xc_loan" tableName="T_PERSON_AUTH" domainObjectName="PersonAuth">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+  
+		<table schema="xc_loan" tableName="T_ITEM_DATA" domainObjectName="ItemData">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+  
+		<table schema="xc_loan" tableName="T_CITY" domainObjectName="City">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+	  
+	</context>
+
+</generatorConfiguration>
+

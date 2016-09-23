@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+	  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+	  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+
+	<classPathEntry location="ojdbc6.jar" />
+
+	<context id="mysqlTable" targetRuntime="MyBatis3">
+
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" /> 
+		</plugin>
+
+		<!-- 去掉注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@10.49.61.115:1521:orcl" userId="xc_ebusiness" password="123" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+
+		<!--com.xcecs.wifi.dao.model-->
+		<javaModelGenerator targetPackage="com.xcecs.wifi.base.dao.model"
+			targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootClass" value="com.xcecs.wifi.core.base.CoreEntity" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--com.xcecs.wifi.dao.mappers-->
+		<sqlMapGenerator targetPackage="com.xcecs.wifi.base.dao.mappers"
+			targetProject="code">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!--com.finstone.house.dao-->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.xcecs.wifi.base.dao" targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootInterface" value="com.xcecs.wifi.core.base.CoreDao" />
+		</javaClientGenerator>
+
+	
+
+<!--
+		<table schema="XC_EBUSINESS" tableName="B_TOPIC" domainObjectName="Topic">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_SINGLE_PAGE" domainObjectName="SinglePage">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_COUPONS" domainObjectName="Coupons">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_COUPONS_TYPE" domainObjectName="CouponsType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_DICTIONARY" domainObjectName="Dictionary">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_FOCUS" domainObjectName="Focus">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+
+		<table schema="XC_EBUSINESS" tableName="B_GOODS" domainObjectName="Goods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_TYPE_RELATIONSHIP" domainObjectName="GoodsTypeRelationship">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_ACTIVITY" domainObjectName="GoodsActivity">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_ACTIVITY_DTL" domainObjectName="GoodsActivityDtl">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_DISCUSS" domainObjectName="GoodsDiscuss">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_ORDER" domainObjectName="GoodsOrder">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_ORDER_DELIVERY_ADDRESS" domainObjectName="GoodsOrderDeliveryAddress">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_ORDER_DELIVERY_TYPE" domainObjectName="GoodsOrderDeliveryType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_ORDER_DTL" domainObjectName="GoodsOrderDtl">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_ORDER_INVENTORY" domainObjectName="GoodsOrderInventory">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_ORDER_PAYMENT_TYPE" domainObjectName="GoodsOrderPaymentType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_TYPE" domainObjectName="GoodsType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_MOBILE_VERIFY" domainObjectName="MobileVerify">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_SHOP" domainObjectName="Shop">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_TOPIC_TYPE" domainObjectName="TopicType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+
+		<table schema="XC_EBUSINESS" tableName="B_USER" domainObjectName="User">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="CPT_NOTIFY" domainObjectName="cptNotify">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="CPT_DATA_INFO" domainObjectName="cptDataInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="CPT_DATASTORE" domainObjectName="cptDatastore">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_MOBILE_VERIFY" domainObjectName="MobileVerify">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_MODULE" domainObjectName="Module">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_USER_FEEDBACK" domainObjectName="UserFeedback">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_USER_RATING" domainObjectName="UserRating">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_USER_RATING_DTL" domainObjectName="UserRatingDtl">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_ONLINE_ADVICE" domainObjectName="OnlineAdvice">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_ORDER_INVENTORY" domainObjectName="GoodsOrderInventory">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_FAVORITES" domainObjectName="GoodsFavorites">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_GOODS_SHOPPING_CART" domainObjectName="GoodsShoppingCart">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+
+		<table schema="XC_EBUSINESS" tableName="B_MENU" domainObjectName="Menu">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+
+		<table schema="XC_EBUSINESS" tableName="CPT_MOBILE_ORDER" domainObjectName="CptMobileOrder">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="CPT_MOBILE_PAY_ALI" domainObjectName="CptMobilePayAli">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_OAUTH_LOGON" domainObjectName="OauthLogon">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_WEB_LINKS" domainObjectName="WebLinks">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_WEB_FOCUS" domainObjectName="WebFocus">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_WEB_HELP_TYPE" domainObjectName="WebHelpType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_WEB_HELP" domainObjectName="WebHelp">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_WEB_HOST" domainObjectName="WebHost">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_MWEB_WX_MSG" domainObjectName="MWebWxMsg">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="B_MWEB_WX_CFG" domainObjectName="MWebWxCfg">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="XC_EBUSINESS" tableName="CPT_NOTIFY" domainObjectName="CptNotify">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+-->
+		<table schema="XC_EBUSINESS" tableName="B_ADDRESS" domainObjectName="Address">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+	</context>
+
+</generatorConfiguration>
+

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+	  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+	  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+
+	<classPathEntry location="ojdbc6.jar" />
+
+	<context id="mysqlTable" targetRuntime="MyBatis3">
+
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" /> 
+		</plugin>
+
+		<!-- 去掉注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.49.61.115:3307/xc_washcar?useUnicode=true&amp;characterEncoding=utf8" userId="root" password="" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+
+		<!--com.xcecs.wifi.dao.model-->
+		<javaModelGenerator targetPackage="com.xcecs.wifi.provider.dao.model"
+			targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootClass" value="com.xcecs.wifi.core.base.CoreEntity" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--com.xcecs.wifi.dao.mappers-->
+		<sqlMapGenerator targetPackage="com.xcecs.wifi.provider.dao.mappers"
+			targetProject="code">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!--com.finstone.house.dao-->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.xcecs.wifi.provider.dao" targetProject="code">
+			<property name="enableSubPackages" value="false" />
+			<property name="rootInterface" value="com.xcecs.wifi.core.base.CoreDao" />
+		</javaClientGenerator>
+
+
+<!-- 
+		<table schema="xc_washcar" tableName="B_DICTIONARY" domainObjectName="Dictionary">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="B_ADDRESS" domainObjectName="Address">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="B_MENU" domainObjectName="Menu">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="B_MOBILE_VERIFY" domainObjectName="MobileVerify">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_SHOP_GOODS" domainObjectName="ShopGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_USER_FAVORITES" domainObjectName="UserFavorites">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_SHOP_DISCOUNT_PRICE_LOG" domainObjectName="ShopDiscountPriceLog">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_SHOP_PRICE_LOG" domainObjectName="ShopPriceLog">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="CPT_MOBILE_ORDER" domainObjectName="CptMobileOrder">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="B_ADMIN" domainObjectName="Admin">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_SHOP_BILL" domainObjectName="ShopBill">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_USER" domainObjectName="User">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="CPT_MOBILE_ORDER" domainObjectName="CptMobileOrder">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_USER_SHOP" domainObjectName="UserShop">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_USER_RECHARGE_RECORD" domainObjectName="UserRechargeRecord">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_ADVERTISEMENT" domainObjectName="Advertisement">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_AGENT" domainObjectName="Agent">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_AUTHORITY" domainObjectName="Authority">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_AUTHORITY_MENU" domainObjectName="AuthorityMenu">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_AGENT" domainObjectName="Agent">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_AGENT_ADDRESS" domainObjectName="AgentAddress">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_SHOP_BILL" domainObjectName="ShopBill">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_HOT_SEARCH" domainObjectName="HotSearch">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_USER" domainObjectName="User">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_ORDER_SCORE" domainObjectName="OrderScore">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_SINGLE_PAGE" domainObjectName="SinglePage">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_WX_NEWS" domainObjectName="WxNews">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_WX_NEWS_DETAIL" domainObjectName="WxNewsDetail">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_SMS_LOG" domainObjectName="SmsLog">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="B_CITY_AREA" domainObjectName="CityArea">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_ORDER" domainObjectName="Order">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_COUPONS_TYPE" domainObjectName="CouponsType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_COUPONS_SHOP_RELATIONSHIP" domainObjectName="CouponsShopRelationshop">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_PUSH_RECORD" domainObjectName="PushRecord">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_COUPONS" domainObjectName="Coupons">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_USER" domainObjectName="User">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_COUPONS_TYPE" domainObjectName="CouponsType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_USER_CARS" domainObjectName="UserCars">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="B_CAR_BRAND" domainObjectName="CarBrand">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_SHOP" domainObjectName="Shop">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_SHOP_ALBUM" domainObjectName="ShopAlbum">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_SOS_SHOP" domainObjectName="SosShop">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		
+		
+		
+		
+		<table schema="xc_washcar" tableName="T_PUSH_INFO" domainObjectName="PushInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		
+		
+		<table schema="xc_washcar" tableName="T_PIKCUP_CAR_DETAIL" domainObjectName="PikcupCarDetail">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="T_PICKUP_CAR_SERVICE_DETAIL" domainObjectName="PikcupCarServiceDetail">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="t_jxc_info_log" domainObjectName="JxcInfoLog">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="t_pickup_car_person" domainObjectName="pickupCarPerson">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="t_pay_type_info" domainObjectName="payTypeInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		
+		
+		<table schema="xc_washcar" tableName="T_PICKUP_CAR_SERVICE_DETAIL" domainObjectName="PikcupCarServiceDetail">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="t_pikcup_car_info" domainObjectName="PikcupCarInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="t_pickup_car_person" domainObjectName="pickupCarPerson">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="t_use_coupion_log" domainObjectName="useCoupionLog">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		-->
+		
+		<!-- 
+		
+ 		
+		<table schema="xc_washcar" tableName="T_ACTIVITY_INFO" domainObjectName="ActivityInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		 
+		 <table schema="xc_washcar" tableName="T_ACTION_INFO" domainObjectName="ActionExprInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		 
+		 <table schema="xc_washcar" tableName="T_RULE_TEAM_INFO" domainObjectName="RuleExprInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		-->
+		
+		
+		 
+		
+		<!-- 
+		
+		<table schema="xc_washcar" tableName="T_RES_TYPE" domainObjectName="ResType">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="T_GOODS" domainObjectName="Goods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		 
+		
+		<table schema="xc_washcar" tableName="T_COMPONENT_INFO" domainObjectName="ComponentInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="T_SERVICE_INFO" domainObjectName="ServiceInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		 
+		<table schema="xc_washcar" tableName="T_TEMPORARY_INFO" domainObjectName="TemporaryInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="T_SHOP_GOODS" domainObjectName="ShopGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		 
+		<table schema="xc_washcar" tableName="T_GOODS_CAR_INFO" domainObjectName="GoodsCarInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="T_CAR_BRAND" domainObjectName="CarBrand">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+ 		
+		<table schema="xc_washcar" tableName="T_ADDRESS" domainObjectName="Address">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		 
+		
+		<table schema="xc_washcar" tableName="T_APPLY_PURCHASE" domainObjectName="ApplyPurchase">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_APPLY_PURCHASE_GOODS" domainObjectName="ApplyPurchaseGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="T_APPLY_SALE" domainObjectName="ApplySale">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_APPLY_SALE_GOODS" domainObjectName="ApplySaleGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_APPLY_SALE_GOODS_FROM" domainObjectName="ApplySaleGoodsFrom">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+		<table schema="xc_washcar" tableName="T_APPLY_RETURN" domainObjectName="ApplyReturn">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_APPLY_RETURN_GOODS" domainObjectName="ApplyReturnGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_APPLY_RETURN_GOODS_FROM" domainObjectName="ApplyReturnGoodsFrom">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+			
+		<table schema="xc_washcar" tableName="T_APPLY_ALLOCATION" domainObjectName="ApplyAllocation">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_APPLY_ALLOCATION_GOODS" domainObjectName="ApplyAllocationGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		<table schema="xc_washcar" tableName="T_APPLY_ALLOCATION_GOODS_FROM" domainObjectName="ApplyAllocationGoodsFrom">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+
+
+		  
+		<table schema="xc_washcar" tableName="T_APPLY_IN_TEMPORARY" domainObjectName="ApplyInTemporary">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_IN_TEMPORARY_GOODS" domainObjectName="ApplyInTemporaryGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_OUT_TEMPORARY" domainObjectName="ApplyOutTemporary">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_OUT_TEMPORARY_GOODS" domainObjectName="ApplyOutTemporaryGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_OUT_TEMPORARY_GOODS_FROM" domainObjectName="ApplyOutTemporaryGoodsFrom">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		   
+		   
+		  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_PURCHASE" domainObjectName="ApplyShopPurchase">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_PURCHASE_GOODS" domainObjectName="ApplyShopPurchaseGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_PURCHASE_GOODS_FROM" domainObjectName="ApplyShopPurchaseGoodsFrom">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>   
+		  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_SALE" domainObjectName="ApplyShopSale">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_SALE_GOODS" domainObjectName="ApplyShopSaleGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_SALE_GOODS_FROM" domainObjectName="ApplyShopSaleGoodsFrom">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_ALLOCATION" domainObjectName="ApplyShopAllocation">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_ALLOCATION_GOODS" domainObjectName="ApplyShopAllocationGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_ALLOCATION_GOODS_FROM" domainObjectName="ApplyShopAllocationGoodsFrom">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		   
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_RETURN" domainObjectName="ApplyShopReturn">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_RETURN_GOODS" domainObjectName="ApplyShopReturnGoods">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		<table schema="xc_washcar" tableName="T_APPLY_SHOP_RETURN_GOODS_FROM" domainObjectName="ApplyShopReturnGoodsFrom">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		 
+		<table schema="xc_washcar" tableName="T_RES_TYPE_FIELD" domainObjectName="ResTypeField">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		 
+		 
+		<table schema="xc_washcar" tableName="T_GOODS_FIELD_DATA" domainObjectName="GoodsFieldData">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>  
+		
+		 
+		<table schema="xc_washcar" tableName="T_COMPONENT_INFO" domainObjectName="ComponentInfo">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		-->
+		
+		<table schema="xc_washcar" tableName="T_ACTIVITY_TARGET_USER" domainObjectName="ActivityTargetUser">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+	</context>
+
+</generatorConfiguration>
+
